@@ -110,6 +110,22 @@ class ViewController: UIViewController {
         return facebookButton
     }()
     
+    private lazy var noAccountLabel: UILabel = {
+       let loginLabel = UILabel()
+        loginLabel.text = "Don't have an account?"
+        loginLabel.font = UIFont.systemFont(ofSize: 12)
+        loginLabel.textColor = .lightGray
+        loginLabel.translatesAutoresizingMaskIntoConstraints = false
+        return loginLabel
+    }()
+    
+    private lazy var signupButton: UIButton = {
+        let signupButton = UIButton()
+        signupButton.setTitle("Sign UP!", for: .normal)
+        signupButton.setTitleColor(UIColor(named: "Color"), for: .normal)
+        return signupButton
+    }()
+    
 // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -136,6 +152,8 @@ class ViewController: UIViewController {
         view.addSubview(anotherConnectLabel)
         view.addSubview(appleButton)
         view.addSubview(facebookButton)
+        view.addSubview(noAccountLabel)
+        view.addSubview(signupButton)
     }
     
     func setupLayout() {
@@ -208,6 +226,20 @@ class ViewController: UIViewController {
             make.left.equalTo(view.snp.left).offset(200)
             make.right.equalTo(view.snp.right).inset(30)
             make.height.equalTo(40)
+        }
+        
+        noAccountLabel.snp.makeConstraints { make in
+            make.top.equalTo(appleButton.snp.bottom).offset(35)
+            make.left.equalTo(view.snp.left).offset(90)
+            make.right.equalTo(view.snp.right).inset(150)
+            make.height.equalTo(13)
+        }
+        
+        signupButton.snp.makeConstraints { make in
+            make.top.equalTo(facebookButton.snp.bottom).offset(35)
+            make.left.equalTo(view.snp.left).offset(200)
+            make.right.equalTo(view.snp.right).inset(60)
+            make.height.equalTo(13)
         }
     }
     
