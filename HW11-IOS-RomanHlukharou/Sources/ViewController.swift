@@ -17,7 +17,32 @@ class ViewController: UIViewController {
         loginLabel.text = "Login"
         loginLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         loginLabel.textColor = .white
+        loginLabel.translatesAutoresizingMaskIntoConstraints = false
         return loginLabel
+    }()
+    
+    private lazy var leftLineLabel: UILabel = {
+        let leftLineLabel = UILabel()
+        leftLineLabel.backgroundColor = .lightGray
+        leftLineLabel.translatesAutoresizingMaskIntoConstraints = false
+        return leftLineLabel
+    }()
+    
+    private lazy var rightLineLabel: UILabel = {
+        let rightLineLabel = UILabel()
+        rightLineLabel.backgroundColor = .lightGray
+        rightLineLabel.translatesAutoresizingMaskIntoConstraints = false
+        return rightLineLabel
+    }()
+    
+    private lazy var anotherConnectLabel: UILabel = {
+        let anotherConnectLabel = UILabel()
+        anotherConnectLabel.text = "or connect with"
+        anotherConnectLabel.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        anotherConnectLabel.textColor = .lightGray
+        anotherConnectLabel.backgroundColor = .clear
+        anotherConnectLabel.translatesAutoresizingMaskIntoConstraints = false
+        return anotherConnectLabel
     }()
     
     private lazy var loginTextField: UITextField = {
@@ -47,7 +72,21 @@ class ViewController: UIViewController {
     
     private lazy var loginButton: UIButton = {
        let loginButton = UIButton()
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.layer.cornerRadius = 20
+        loginButton.backgroundColor = .systemMint
         return loginButton
+    }()
+    
+    private lazy var forgottenPassword: UIButton = {
+       let forgottenPassword = UIButton()
+        forgottenPassword.setTitle("Forgot your password?", for: .normal)
+        forgottenPassword.setTitleColor(.darkGray, for: .normal)
+        forgottenPassword.backgroundColor = .none
+        forgottenPassword.translatesAutoresizingMaskIntoConstraints = false
+        return forgottenPassword
     }()
     
     
@@ -70,6 +109,11 @@ class ViewController: UIViewController {
         view.addSubview(loginLabel)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+        view.addSubview(forgottenPassword)
+        view.addSubview(leftLineLabel)
+        view.addSubview(rightLineLabel)
+        view.addSubview(anotherConnectLabel)
     }
     
     func setupLayout() {
@@ -93,6 +137,41 @@ class ViewController: UIViewController {
             make.left.equalTo(view.snp.left).offset(40)
             make.right.equalTo(view.snp.right).inset(40)
             make.height.equalTo(44)
+        }
+        
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(50)
+            make.left.equalTo(view.snp.left).offset(40)
+            make.right.equalTo(view.snp.right).inset(40)
+            make.height.equalTo(44)
+        }
+        
+        forgottenPassword.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
+            make.left.equalTo(view.snp.left).offset(40)
+            make.right.equalTo(view.snp.right).inset(40)
+            make.height.equalTo(15)
+        }
+        
+        leftLineLabel.snp.makeConstraints { make in
+            make.top.equalTo(forgottenPassword.snp.bottom).offset(150)
+            make.left.equalTo(view.snp.left).offset(40)
+            make.right.equalTo(view.snp.right).inset(250)
+            make.height.equalTo(1)
+        }
+        
+        rightLineLabel.snp.makeConstraints { make in
+            make.top.equalTo(forgottenPassword.snp.bottom).offset(150)
+            make.left.equalTo(view.snp.left).offset(250)
+            make.right.equalTo(view.snp.right).inset(40)
+            make.height.equalTo(1)
+        }
+        
+        anotherConnectLabel.snp.makeConstraints { make in
+            make.top.equalTo(forgottenPassword.snp.bottom).offset(143)
+            make.left.equalTo(view.snp.left).offset(145)
+            make.right.equalTo(view.snp.right).inset(125)
+            make.height.equalTo(13)
         }
     }
     
