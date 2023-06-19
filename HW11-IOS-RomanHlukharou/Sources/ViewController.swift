@@ -97,6 +97,12 @@ class ViewController: UIViewController {
         config.baseBackgroundColor = .black
         config.cornerStyle = .capsule
         let appleButton = UIButton(configuration: config)
+        appleButton.layer.shadowColor = UIColor.black.cgColor
+        appleButton.layer.shadowOpacity = 0.3
+        appleButton.layer.shadowOffset = .zero
+        appleButton.layer.shadowRadius = 10
+        appleButton.layer.shouldRasterize = true
+        appleButton.layer.rasterizationScale = UIScreen.main.scale
         return appleButton
     }()
     
@@ -107,6 +113,12 @@ class ViewController: UIViewController {
         config.cornerStyle = .capsule
         config.baseBackgroundColor = UIColor(named: "Color")
         let facebookButton = UIButton(configuration: config)
+        facebookButton.layer.shadowColor = UIColor.black.cgColor
+        facebookButton.layer.shadowOpacity = 0.3
+        facebookButton.layer.shadowOffset = .zero
+        facebookButton.layer.shadowRadius = 10
+        facebookButton.layer.shouldRasterize = true
+        facebookButton.layer.rasterizationScale = UIScreen.main.scale
         return facebookButton
     }()
     
