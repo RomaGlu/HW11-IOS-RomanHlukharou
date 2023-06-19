@@ -89,6 +89,26 @@ class ViewController: UIViewController {
         return forgottenPassword
     }()
     
+    private lazy var appleButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "Apple"
+        config.image = UIImage(systemName: "apple.logo")
+        config.imagePadding = 10
+        config.baseBackgroundColor = .black
+        config.cornerStyle = .capsule
+        let appleButton = UIButton(configuration: config)
+        return appleButton
+    }()
+    
+    private lazy var facebookButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "Facebook"
+        config.image = UIImage(systemName: "f.square")
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = UIColor(named: "Color")
+        let facebookButton = UIButton(configuration: config)
+        return facebookButton
+    }()
     
 // MARK: - Lifecycle
     
@@ -114,6 +134,8 @@ class ViewController: UIViewController {
         view.addSubview(leftLineLabel)
         view.addSubview(rightLineLabel)
         view.addSubview(anotherConnectLabel)
+        view.addSubview(appleButton)
+        view.addSubview(facebookButton)
     }
     
     func setupLayout() {
@@ -173,6 +195,20 @@ class ViewController: UIViewController {
             make.right.equalTo(view.snp.right).inset(125)
             make.height.equalTo(13)
         }
+        
+        appleButton.snp.makeConstraints { make in
+            make.top.equalTo(leftLineLabel.snp.bottom).offset(40)
+            make.left.equalTo(view.snp.left).offset(30)
+            make.right.equalTo(view.snp.right).inset(200)
+            make.height.equalTo(40)
+        }
+        
+        facebookButton.snp.makeConstraints { make in
+            make.top.equalTo(rightLineLabel.snp.bottom).offset(40)
+            make.left.equalTo(view.snp.left).offset(200)
+            make.right.equalTo(view.snp.right).inset(30)
+            make.height.equalTo(40)
+        }
     }
     
 // MARK: - Actions
@@ -213,6 +249,4 @@ extension UITextField {
         rightView = iconContainerView
         rightViewMode = .always
     }
-    
 }
-
