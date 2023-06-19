@@ -55,6 +55,12 @@ class ViewController: UIViewController {
         login.layer.cornerRadius = 20
         login.setLeftIcon(UIImage(named: "userIcon")!)
         login.setRightIcon(UIImage(named: "accordance")!)
+        login.layer.shadowColor = UIColor.black.cgColor
+        login.layer.shadowOpacity = 0.3
+        login.layer.shadowOffset = .zero
+        login.layer.shadowRadius = 10
+        login.layer.shouldRasterize = true
+        login.layer.rasterizationScale = UIScreen.main.scale
         return login
     }()
     
@@ -67,6 +73,12 @@ class ViewController: UIViewController {
         passwordTextField.backgroundColor = .white
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.setLeftIcon(UIImage(named: "lock")!)
+        passwordTextField.layer.shadowColor = UIColor.black.cgColor
+        passwordTextField.layer.shadowOpacity = 0.3
+        passwordTextField.layer.shadowOffset = .zero
+        passwordTextField.layer.shadowRadius = 10
+        passwordTextField.layer.shouldRasterize = true
+        passwordTextField.layer.rasterizationScale = UIScreen.main.scale
         return passwordTextField
     }()
     
@@ -77,6 +89,12 @@ class ViewController: UIViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.layer.cornerRadius = 20
         loginButton.backgroundColor = .systemMint
+        loginButton.layer.shadowColor = UIColor.black.cgColor
+        loginButton.layer.shadowOpacity = 0.3
+        loginButton.layer.shadowOffset = .zero
+        loginButton.layer.shadowRadius = 10
+        loginButton.layer.shouldRasterize = true
+        loginButton.layer.rasterizationScale = UIScreen.main.scale
         return loginButton
     }()
     
